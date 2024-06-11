@@ -3,7 +3,7 @@
     <parent>
         <groupId>com.h3xstream.findsecbugs</groupId>
         <artifactId>findsecbugs-root-pom</artifactId>
-        <version>1.14.0-SNAPSHOT</version>
+        <version>1.13.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -24,10 +24,10 @@
 
     <build>
         <plugins>
+
             <!-- Jar packaging -->
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
                 <configuration>
                     <archive>
                         <addMavenDescriptor>false</addMavenDescriptor>
@@ -39,6 +39,7 @@
             </plugin>
             <!-- Moving findbugs config to root -->
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
                     <execution>
@@ -48,11 +49,11 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <tasks>
+                            <target>
                                 <copy todir="${project.build.outputDirectory}">
                                     <fileset dir="${project.build.outputDirectory}/metadata" />
                                 </copy>
-                            </tasks>
+                            </target>
                         </configuration>
                     </execution>
                 </executions>
@@ -62,7 +63,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20</version>
                 <configuration>
                     <properties>
                         <property>
@@ -129,15 +129,15 @@
         </dependency>
 
 
-        <!-- Toolkit for easy detector testing -->
+        <!-- Toolkit for easy detector testing
         <dependency>
             <groupId>com.h3xstream.findsecbugs</groupId>
             <artifactId>findsecbugs-test-util</artifactId>
             <type>test-jar</type>
             <scope>test</scope>
-        </dependency>
+        </dependency> -->
 
-        <!-- Test samples -->
+        <!-- Test samples
         <dependency>
             <groupId>com.h3xstream.findsecbugs</groupId>
             <artifactId>findsecbugs-samples-kotlin</artifactId>
@@ -161,9 +161,9 @@
             <artifactId>findsecbugs-samples-jsp</artifactId>
             <type>test-jar</type>
             <scope>test</scope>
-        </dependency>
+        </dependency> -->
 
-        <!-- Unit Testing libraries -->
+        <!-- Unit Testing libraries
 
         <dependency>
             <groupId>org.mockito</groupId>
@@ -193,7 +193,7 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <scope>test</scope>
-        </dependency>
+        </dependency> -->
         
         <dependency>
             <groupId>com.h3xstream.findsecbugs</groupId>
