@@ -5,7 +5,7 @@
     <artifactId>findsecbugs-root-pom</artifactId>
 
     <packaging>pom</packaging>
-    <version>1.14.0</version>
+    <version>1.13.1</version>
 
     <name>OWASP Find Security Bugs root</name>
 
@@ -19,7 +19,6 @@
 
     <build>
         <plugins>
-            <!-- Force the use the compatibility to Java 8 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -39,57 +38,61 @@
                 <artifactId>license-maven-plugin</artifactId>
                 <version>4.6</version>
                 <configuration>
-                    <header>file:///${session.executionRootDirectory}/LGPL-3.0-header.txt</header>
                     <aggregate>true</aggregate>
                     <strictCheck>true</strictCheck>
-                    <includes>
-                        <include>**/**.java</include>
-                    </includes>
-                    <excludes>
-                        <exclude>**/SMAPSourceDebugExtension.java</exclude>
-                        <exclude>**/testcode/**/**.java</exclude>
-                        <exclude>**/testcasesupport/**/**.java</exclude>
-                        <exclude>**/testcases/**/**.java</exclude>
-                        <exclude>**/package-info.java</exclude>
-                        <!-- Package that contains stub api -->
-                        <exclude>**/java/android/**/**.java</exclude>
-                        <exclude>**/com/hazelcast/**/**.java</exclude>
-                        <exclude>**/javax/**/**.java</exclude>
-                        <exclude>**/jakarta/**/**.java</exclude>
-                        <exclude>**/org/opensaml/xml/**/**.java</exclude>
-                        <exclude>**/org/acegisecurity/**/**.java</exclude>
-                        <exclude>**/org/apache/**/**.java</exclude>
-                        <exclude>**/org/bouncycastle/**/**.java</exclude>
-                        <exclude>**/org/hibernate/**/**.java</exclude>
-                        <exclude>**/org/eclipse/jetty/**/**.java</exclude>
-                        <exclude>**/org/slf4j/**/**.java</exclude>
-                        <exclude>**/org/sonarqube/**/**.java</exclude>
-                        <exclude>**/org/owasp/**/**.java</exclude>
-                        <exclude>**/io/dropwizard/**/**.java</exclude>
-                        <exclude>**/org/jboss/**/**.java</exclude>
-                        <exclude>**/org/springframework/**/**.java</exclude>
-                        <exclude>**/com/unboundid/ldap/**/**.java</exclude>
-                        <exclude>**/java/scala/util/**/**.java</exclude>
-                        <exclude>**/groovy/lang/**.java</exclude>
-                        <exclude>**/scala/**.java</exclude>
-                        <exclude>**/scala/**/**.java</exclude>
-                        <exclude>**/**/ReadMe.java</exclude>
-                        <exclude>**/freemarker/template/**/**.java</exclude>
-                        <exclude>**/pebble/**/**/**.java</exclude>
-                        <exclude>**/PluginDepsClassPathFinder.java</exclude>
-                        <exclude>**/java/flexjson/**.java</exclude>
-                        <exclude>**/java/com/typesafe/**/**.java</exclude>
-                        <exclude>**/java/com/fasterxml/jackson/**/**.java</exclude>
-                        <exclude>**/java/ognl/**/**.java</exclude>
-                        <exclude>**/com/sun/**/**.java</exclude>
-                        <exclude>**/sun/security/**/**.java</exclude>
-                        <exclude>**/com/opensymphony/**/**.java</exclude>
-                        <exclude>**/com/google/**/**.java</exclude>
-                        <exclude>**/com/jcraft/**/**.java</exclude>
-                        <exclude>**/io/vertx/**/**.java</exclude>
-                        <exclude>**/java/kotlin/**</exclude>
-                        <exclude>**/org/jetbrains/**</exclude>
-                    </excludes>
+                    <licenseSets>
+                        <licenseSet>
+                            <header>file:///${session.executionRootDirectory}/LGPL-3.0-header.txt</header>
+                            <includes>
+                                <include>**/**.java</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/SMAPSourceDebugExtension.java</exclude>
+                                <exclude>**/testcode/**/**.java</exclude>
+                                <exclude>**/testcasesupport/**/**.java</exclude>
+                                <exclude>**/testcases/**/**.java</exclude>
+                                <exclude>**/package-info.java</exclude>
+                                <!-- Package that contains stub api -->
+                                <exclude>**/java/android/**/**.java</exclude>
+                                <exclude>**/com/hazelcast/**/**.java</exclude>
+                                <exclude>**/javax/**/**.java</exclude>
+                                <exclude>**/jakarta/**/**.java</exclude>
+                                <exclude>**/org/opensaml/xml/**/**.java</exclude>
+                                <exclude>**/org/acegisecurity/**/**.java</exclude>
+                                <exclude>**/org/apache/**/**.java</exclude>
+                                <exclude>**/org/bouncycastle/**/**.java</exclude>
+                                <exclude>**/org/hibernate/**/**.java</exclude>
+                                <exclude>**/org/eclipse/jetty/**/**.java</exclude>
+                                <exclude>**/org/slf4j/**/**.java</exclude>
+                                <exclude>**/org/sonarqube/**/**.java</exclude>
+                                <exclude>**/org/owasp/**/**.java</exclude>
+                                <exclude>**/io/dropwizard/**/**.java</exclude>
+                                <exclude>**/org/jboss/**/**.java</exclude>
+                                <exclude>**/org/springframework/**/**.java</exclude>
+                                <exclude>**/com/unboundid/ldap/**/**.java</exclude>
+                                <exclude>**/java/scala/util/**/**.java</exclude>
+                                <exclude>**/groovy/lang/**.java</exclude>
+                                <exclude>**/scala/**.java</exclude>
+                                <exclude>**/scala/**/**.java</exclude>
+                                <exclude>**/**/ReadMe.java</exclude>
+                                <exclude>**/freemarker/template/**/**.java</exclude>
+                                <exclude>**/pebble/**/**/**.java</exclude>
+                                <exclude>**/PluginDepsClassPathFinder.java</exclude>
+                                <exclude>**/java/flexjson/**.java</exclude>
+                                <exclude>**/java/com/typesafe/**/**.java</exclude>
+                                <exclude>**/java/com/fasterxml/jackson/**/**.java</exclude>
+                                <exclude>**/java/ognl/**/**.java</exclude>
+                                <exclude>**/com/sun/**/**.java</exclude>
+                                <exclude>**/sun/security/**/**.java</exclude>
+                                <exclude>**/com/opensymphony/**/**.java</exclude>
+                                <exclude>**/com/google/**/**.java</exclude>
+                                <exclude>**/com/jcraft/**/**.java</exclude>
+                                <exclude>**/io/vertx/**/**.java</exclude>
+                                <exclude>**/java/kotlin/**</exclude>
+                                <exclude>**/org/jetbrains/**</exclude>
+                            </excludes>
+                        </licenseSet>
+                    </licenseSets>
                     <properties>
                         <project>Find Security Bugs</project>
                         <owner>Philippe Arteau</owner>
@@ -111,7 +114,7 @@
                 <version>3.11.2</version>
                 <configuration>
                     <additionalparam>-Xdoclint:none</additionalparam>
-                    <source>8</source>
+                    <source>21</source>
                 </configuration>
             </plugin>
 
@@ -305,8 +308,6 @@
                 <scope>test</scope>
             </dependency>
 
-
-
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
@@ -328,9 +329,6 @@
                 <version>1.5.18</version>
                 <scope>test</scope>
             </dependency>
-
-
-
 
         </dependencies>
 

@@ -3,7 +3,7 @@
     <parent>
         <groupId>com.h3xstream.findsecbugs</groupId>
         <artifactId>findsecbugs-root-pom</artifactId>
-        <version>1.14.0</version>
+        <version>1.13.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -19,7 +19,7 @@
     </description>
 
     <properties>
-        <maven.compiler.release>8</maven.compiler.release>
+        <maven.compiler.release>21</maven.compiler.release>
     </properties>
 
     <build>
@@ -27,7 +27,7 @@
             <!-- Jar packaging -->
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
+                <version>3.4.2</version>
                 <configuration>
                     <archive>
                         <addMavenDescriptor>false</addMavenDescriptor>
