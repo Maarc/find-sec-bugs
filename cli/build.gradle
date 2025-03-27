@@ -5,23 +5,22 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.spotbugs:spotbugs:'+spotbugsVersion
-    compile 'com.h3xstream.findsecbugs:findsecbugs-plugin:'+fsbVersion
+    implementation "com.github.spotbugs:spotbugs:${spotbugsVersion}"
+    implementation "com.h3xstream.findsecbugs:findsecbugs-plugin:${fsbVersion}"
 }
 
 task copyRuntimeLibs(type: Copy) {
     into "lib"
-    from configurations.runtime
+    from configurations.runtimeClasspath
 }
 
-
-
-task packageCli(type: Zip,dependsOn: 'copyRuntimeLibs') {
+task packageCli(type: Zip) {
+    dependsOn copyRuntimeLibs
     from './'
     include 'findsecbugs.bat'
     include 'findsecbugs.sh'
     include 'include.xml'
-    include 'lib/*' //Gather all SpotBugs dependencies jar + FSB jar
-    archiveName 'findsecbugs-cli-'+fsbVersion+'.zip'
-    destinationDir(file('./'))
+    include 'lib/*' // Gather all SpotBugs dependencies jar + FSB jar
+    archiveFileName.set("findsecbugs-cli-${fsbVersion}.zip")
+    destinationDirectory.set(file('./'))
 }
