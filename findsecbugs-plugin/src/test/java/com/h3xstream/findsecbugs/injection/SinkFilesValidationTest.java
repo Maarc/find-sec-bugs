@@ -1,4 +1,4 @@
-/**
+/*
  * Find Security Bugs
  * Copyright (c) Philippe Arteau, All rights reserved.
  *
@@ -15,7 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library.
  */
-
 package com.h3xstream.findsecbugs.injection;
 
 import com.h3xstream.findsecbugs.taintanalysis.BaseConfigValidation;

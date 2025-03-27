@@ -1,4 +1,4 @@
-/**
+/*
  * Find Security Bugs
  * Copyright (c) Philippe Arteau, All rights reserved.
  *
