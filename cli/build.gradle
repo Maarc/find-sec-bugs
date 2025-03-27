@@ -6,7 +6,7 @@ repositories {
 
 dependencies {
     implementation "com.github.spotbugs:spotbugs:${spotbugsVersion}"
-    implementation "com.h3xstream.findsecbugs:findsecbugs-plugin:${fsbVersion}"
+    implementation files("../findsecbugs-plugin/target/findsecbugs-plugin-${fsbVersion}.jar")
 }
 
 task copyRuntimeLibs(type: Copy) {
